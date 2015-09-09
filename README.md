@@ -1,43 +1,29 @@
-# Cars API
+Test Project for Ally
+=====================
 
+# Description
 
-As an extension to our current backend infrastructure, we decided to create a car-sharing API to help us to show the best options around an user’s position.
+I use Sinatra as base framework for API, DataMapper as ORM, Test-Unit for acceptance tests
+For database - PostgreSQL with 'earthdistance' and 'cube' extensions to get ranged by distance collection.
 
-In order to show cars on a map, all we need is a name, description and position of the vehicle. And it is up to the api to organize different data sources and provide a single response via an endpoint.
+DataMapper has strange issue which blocks us from importing data, solved with updating version from 2.0.0 to 2.1.2 https://goo.gl/a1hHea
 
-## Instructions
+# Installation notes
 
-In this exercise, your job is to build a simple API/webservice that expose one single endpoint called `/cars` that receives a GET with the location parameter as the example below:
+- Install gem dependency manager - `gem install bundler`
+- Install PostgreSQL and pg extension
+    - Mac OS X related
+        - Use PostgresApp for Mac OS X http://postgresapp.com/
+        - `sudo ARCHFLAGS="-arch x86_64" gem install pg -v '0.13.2'`
+    - Linux related
+        - Take a look on https://gorails.com/setup/ for Database Setup, we need to have PostGIS extensions cube and earthdistance
+- Create database `createdb ally_development`
+- Define environment variable - `export DB_DSN=postgres://localhost/ally_development`
+- Install all gems `bundle install --binstubs`
+- Inject PostGIS extensions to enable distance calculation - `rake udf`
+- Insert demo data from data.json  - `rake init`
+- Start web app - `rackup`
+- Open in browser - "http://localhost:9292/cars?location=1,2"
+- Run acceptance tests - `rake` (please, ensure that you started server)
+- Run unit tests - `rake unit`
 
-GET /cars?location=51.5444204,-0.22707
-
-This endpoint should fetch the 10 closest cars from the database and return them ordered by distance from the point receive. See the following snippet of a valid response:
-
-````json
-{
-    "cars": [
-      {
-        "description": "West Ealing - Hartington Rd",
-        "latitude": 51.511318,
-        "longitude": -0.318178
-      },
-      {
-        "description": "Sudbury - Williams Way",
-        "latitude": 51.553667,
-        "longitude": -0.315159
-      },
-      {
-        "description": "West Ealing - St Leonard’s Rd",
-        "latitude": 51.512107,
-        "longitude": -0.313599
-      }
-    ]
-}
-````
-
-- You can use the file `data.json` as seed for your database
-- We suggest you to save this content in a database, so you can sort and filter them easily.
-- The endpoint should return the correct status codes for a success request and a failed one.
-- Use this repository to build your solution.
-- The solution should perform well regardless of the number of records
-- Don't forget the instructions for testing and running the code.
