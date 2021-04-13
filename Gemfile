@@ -5,7 +5,7 @@ gem 'dotenv', '2.0.2'
 gem 'rack', '1.6.4'
 gem 'json', '1.8.3'
 
-gem 'test-unit', '2.0.0'
+gem 'test-unit', '3.4.0'
 gem 'rack-test', '0.6.3'
 
 gem 'sinatra', '1.4.6'
