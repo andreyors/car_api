@@ -67,14 +67,14 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    sinatra (1.4.6)
-      rack (~> 1.4)
+    sinatra (1.4.8)
+      rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     stringex (1.5.1)
     test-unit (3.4.4)
       power_assert
-    tilt (2.0.1)
+    tilt (2.0.10)
     uuidtools (2.1.5)
 
 PLATFORMS
@@ -91,7 +91,7 @@ DEPENDENCIES
   pg (= 0.13.2)
   rack (= 1.6.4)
   rack-test (= 0.6.3)
-  sinatra (= 1.4.6)
+  sinatra (= 1.4.8)
   test-unit (= 3.4.4)
 
 BUNDLED WITH
