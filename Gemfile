@@ -6,7 +6,7 @@ gem 'rack', '1.6.4'
 gem 'json', '1.8.3'
 
 gem 'test-unit', '3.4.4'
-gem 'rack-test', '0.6.3'
+gem 'rack-test', '1.1.0'
 
 gem 'sinatra', '1.4.6'
 gem 'data_mapper', '1.2.0'
