@@ -62,7 +62,7 @@ GEM
     multi_json (1.11.2)
     pg (0.13.2)
     power_assert (2.0.0)
-    rack (1.6.4)
+    rack (1.6.13)
     rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
@@ -81,7 +81,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (= 1.10.6)
+  bundler (= 2.2.20)
   data_mapper (= 1.2.0)
   dm-ar-finders (= 1.2.0)
   dm-migrations (= 1.2.0)
@@ -89,7 +89,7 @@ DEPENDENCIES
   dotenv (= 2.0.2)
   json (= 1.8.3)
   pg (= 0.13.2)
-  rack (= 1.6.4)
+  rack (= 1.6.13)
   rack-test (= 0.6.3)
   sinatra (= 1.4.6)
   test-unit (= 3.4.4)
