@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bundler', '2.2.20'
-gem 'dotenv', '2.0.2'
+gem 'dotenv', '2.7.6'
 gem 'rack', '1.6.4'
 gem 'json', '1.8.3'
 
