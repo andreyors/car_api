@@ -62,7 +62,7 @@ GEM
     multi_json (1.11.2)
     pg (1.2.3)
     power_assert (2.0.0)
-    rack (1.6.4)
+    rack (1.6.13)
     rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
@@ -89,7 +89,7 @@ DEPENDENCIES
   dotenv (= 2.7.6)
   json (= 1.8.3)
   pg (= 1.2.3)
-  rack (= 1.6.4)
+  rack (= 1.6.13)
   rack-test (= 0.6.3)
   sinatra (= 1.4.8)
   test-unit (= 3.4.4)
