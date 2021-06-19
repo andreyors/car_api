@@ -26,6 +26,7 @@ jobs:
         run: bundle add code-scanning-rubocop --skip-install
 
       - name: Debugging with tmate
+        if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3.5
 
       - name: Install dependencies
