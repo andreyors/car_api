@@ -19,13 +19,16 @@ jobs:
           ruby-version: 2.7
 
       - name: Install deps
-        run: sudo apt-get update && sudo apt-get install -yqq postgresql-server-dev-all libpq-dev
+        run: sudo apt-get update && sudo apt-get install -yqq postgresql-12 postgresql-server-dev-12 libpq-dev     
+  
+      - name: install do_postgres
+        run: gem install do_postgres -- --with-pgsql-server-include=/usr/include/postgresql/12/server
 
-      # This step is not necessary if you add the gem to your Gemfile
       - name: Install Code Scanning integration
         run: bundle add code-scanning-rubocop --skip-install
 
       - name: Debugging with tmate
+        if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3.5
 
       - name: Install dependencies
