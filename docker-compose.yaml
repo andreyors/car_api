@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/src
