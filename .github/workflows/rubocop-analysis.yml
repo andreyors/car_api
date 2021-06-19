@@ -10,9 +10,6 @@ jobs:
       fail-fast: false
 
     steps:
-    - name: Install deps
-      run: sudo apt-get update && sudo apt-get install -yqq postgresql-server-dev-all libpq-dev
-
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -20,6 +17,9 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7
+
+    - name: Install deps
+      run: sudo apt-get update && sudo apt-get install -yqq postgresql-server-dev-all libpq-dev
 
     # This step is not necessary if you add the gem to your Gemfile
     - name: Install Code Scanning integration
