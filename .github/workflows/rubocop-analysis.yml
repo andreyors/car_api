@@ -10,11 +10,6 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: singingwolfboy/build-dpkg-buster@v1
-        id: build
-        with:
-          args: --unsigned-source --unsigned-changes
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
