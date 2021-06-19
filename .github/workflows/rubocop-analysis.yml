@@ -25,6 +25,9 @@ jobs:
       - name: Install Code Scanning integration
         run: bundle add code-scanning-rubocop --skip-install
 
+      - name: Debugging with tmate
+        uses: mxschmitt/action-tmate@v3.5
+
       - name: Install dependencies
         run: bundle install
 
