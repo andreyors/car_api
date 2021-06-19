@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Install deps
       run: sudo apt-get update && sudo apt-get install -yqq postgresql-server-dev-all libpq-dev
-    
+
     - name: Checkout repository
       uses: actions/checkout@v2
 
