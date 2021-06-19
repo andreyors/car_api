@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GeoPoint
   attr_reader :latitude, :longitude
 

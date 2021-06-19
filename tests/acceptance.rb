@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 ENV['RACK_ENV'] = 'test'
 
 require 'test/unit'
 require 'rack/test'
 
-require File.expand_path '../../app.rb', __FILE__
+require File.expand_path '../app.rb', __dir__
 
 class CarApiTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
-  def app()
+  def app
     AllyApp
   end
 
@@ -44,7 +46,6 @@ class CarApiTest < Test::Unit::TestCase
 
   def test_should_return_ten_items
     get '/cars?location=0,0'
-    assert JSON.parse(last_response.body)['cars'].count() === 10
+    assert JSON.parse(last_response.body)['cars'].count === 10
   end
-
 end

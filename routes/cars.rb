@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 get '/cars' do
   content_type :json
 
@@ -20,6 +22,5 @@ get '/cars' do
   end
 
   status code
-  {cars: cars}.to_json
+  { cars: cars }.to_json
 end
-
