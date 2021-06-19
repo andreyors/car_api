@@ -58,7 +58,7 @@ GEM
       data_objects (= 0.10.17)
     dotenv (2.7.6)
     fastercsv (1.5.5)
-    json (1.8.5)
+    json (1.8.6)
     json_pure (1.8.6)
     multi_json (1.15.0)
     mustermann (1.1.1)
@@ -87,12 +87,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  data_mapper (= 1.2.0)
-  dm-ar-finders (= 1.2.0)
-  dm-migrations (= 1.2.0)
+  data_mapper (~> 1.2.0)
+  dm-ar-finders (~> 1.2.0)
+  dm-migrations (~> 1.2.0)
   dm-postgres-adapter (= 1.2.0)
   dotenv (= 2.7.6)
-  json (= 1.8.5)
+  json (~> 1.8.5)
   pg (= 1.2.3)
   rack (= 2.2.3)
   rack-test (= 0.6.3)
