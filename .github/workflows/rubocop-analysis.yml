@@ -10,32 +10,37 @@ jobs:
       fail-fast: false
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - uses: singingwolfboy/build-dpkg-buster@v1
+        id: build
+        with:
+          args: --unsigned-source --unsigned-changes
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Install deps
-      run: sudo apt-get update && sudo apt-get install -yqq postgresql-server-dev-all libpq-dev
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
 
-    # This step is not necessary if you add the gem to your Gemfile
-    - name: Install Code Scanning integration
-      run: bundle add code-scanning-rubocop --skip-install
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -yqq postgresql-server-dev-all libpq-dev
 
-    - name: Install dependencies
-      run: bundle install
+      # This step is not necessary if you add the gem to your Gemfile
+      - name: Install Code Scanning integration
+        run: bundle add code-scanning-rubocop --skip-install
 
-    - name: RuboCop run
-      run: |
-        bash -c "
-          bundle exec rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
-          [[ $? -ne 2 ]]
-        "
+      - name: Install dependencies
+        run: bundle install
 
-    - name: Upload Sarif output
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        sarif_file: rubocop.sarif
+      - name: RuboCop run
+        run: |
+          bash -c "
+            bundle exec rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
+            [[ $? -ne 2 ]]
+          "
+
+      - name: Upload Sarif output
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: rubocop.sarif
